@@ -145,7 +145,8 @@ checkBrowsers(paths.appPath, isInteractive)
       }
 
       console.log(chalk.cyan('Starting the development server...\n'));
-      openBrowser(urls.localUrlForBrowser);
+      const mockMode = '?mock=1';
+      openBrowser(urls.localUrlForBrowser + mockMode);
     });
 
     ['SIGINT', 'SIGTERM'].forEach(function(sig) {
