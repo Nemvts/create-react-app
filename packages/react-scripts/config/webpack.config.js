@@ -15,6 +15,7 @@ const resolve = require('resolve');
 const PnpWebpackPlugin = require('pnp-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CaseSensitivePathsPlugin = require('case-sensitive-paths-webpack-plugin');
+const CircularDependencyPlugin = require('circular-dependency-plugin');
 const InlineChunkHtmlPlugin = require('react-dev-utils/InlineChunkHtmlPlugin');
 const TerserPlugin = require('terser-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
@@ -58,6 +59,7 @@ const cssRegex = /\.css$/;
 const cssModuleRegex = /\.module\.css$/;
 const sassRegex = /\.(scss|sass)$/;
 const sassModuleRegex = /\.module\.(scss|sass)$/;
+let cycleErrors = [];
 
 // This is the production and development configuration.
 // It is focused on developer experience, fast rebuilds, and a minimal bundle.
@@ -170,6 +172,8 @@ module.exports = function(webpackEnv) {
       // require.resolve('webpack/hot/dev-server'),
       isEnvDevelopment &&
         require.resolve('react-dev-utils/webpackHotDevClient'),
+      // Needed to support older browsers like Internet Explorer. Added by Dealersocket.
+      '@babel/polyfill',
       // Finally, this is your app's code:
       paths.appIndexJs,
       // We include the app code last so that if there is a runtime error during
@@ -270,8 +274,8 @@ module.exports = function(webpackEnv) {
               : false,
           },
           cssProcessorPluginOptions: {
-              preset: ['default', { minifyFontValues: { removeQuotes: false } }]
-          }
+            preset: ['default', { minifyFontValues: { removeQuotes: false } }],
+          },
         }),
       ],
       // Automatically split vendor and commons
@@ -580,6 +584,34 @@ module.exports = function(webpackEnv) {
       ],
     },
     plugins: [
+      // Detect modules with circular dependencies when bundling with webpack.
+      // https://www.npmjs.com/package/circular-dependency-plugin
+      new CircularDependencyPlugin({
+        // exclude detection of files based on a RegExp
+        exclude: /a\.js|node_modules/,
+        // allow import cycles that include an asynchronous import,
+        // e.g. via import(/* webpackMode: "weak" */ './file.js')
+        allowAsyncCycles: false,
+        // set the current working directory for displaying module paths
+        cwd: process.cwd(),
+        // `onStart` is called before the cycle detection starts
+        onStart({ compilation }) {
+          cycleErrors = [];
+        },
+        onDetected({ module: webpackModuleRecord, paths, compilation }) {
+          cycleErrors.push(paths.join('\n-> '));
+          compilation.warnings.push(new Error(paths.join(' -> ')));
+        },
+        onEnd({ compilation }) {
+          if (cycleErrors.length > 0) {
+            console.error('Circular Dependencies:');
+            cycleErrors.map(error => console.error(error + '\n'));
+            compilation.errors.push(
+              new Error(`Detected ${cycleErrors.length} cycles.`)
+            );
+          }
+        },
+      }),
       // Generates an `index.html` file with the <script> injected.
       new HtmlWebpackPlugin(
         Object.assign(
