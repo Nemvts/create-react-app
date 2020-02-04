@@ -25,12 +25,22 @@ module.exports = (resolve, rootDir, isEjecting) => {
   const config = {
     roots: ['<rootDir>/src'],
 
-    collectCoverageFrom: ['src/**/*.{js,jsx,ts,tsx}', '!src/**/*.d.ts'],
+    collectCoverageFrom: [
+      'src/area/dallas-class/**',
+      '!src/**/mock/**',
+      '!**/mocks/**',
+      '!src/mock.js',
+      '!src/**/*.stories.js',
+      '!src/**/*.d.ts',
+    ],
+
+    coverageDirectory: './coverage',
 
     setupFiles: [
       isEjecting
         ? 'react-app-polyfill/jsdom'
         : require.resolve('react-app-polyfill/jsdom'),
+      require.resolve('../../config/jest/jest.setup.js'),
     ],
 
     setupFilesAfterEnv: setupTestsFile ? [setupTestsFile] : [],
@@ -39,6 +49,8 @@ module.exports = (resolve, rootDir, isEjecting) => {
       '<rootDir>/src/**/*.{spec,test}.{js,jsx,ts,tsx}',
     ],
     testEnvironment: 'jest-environment-jsdom-fourteen',
+    testRegex: 'src/.*\\.(test|spec)\\.(js|jsx)$',
+    testURL: 'http://localhost',
     transform: {
       '^.+\\.(js|jsx|ts|tsx)$': isEjecting
         ? '<rootDir>/node_modules/babel-jest'
@@ -56,6 +68,8 @@ module.exports = (resolve, rootDir, isEjecting) => {
     moduleNameMapper: {
       '^react-native$': 'react-native-web',
       '^.+\\.module\\.(css|sass|scss)$': 'identity-obj-proxy',
+      '\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$':
+        '<rootDir>/__mocks__/file-mock.js',
       ...(modules.jestAliases || {}),
     },
     moduleFileExtensions: [...paths.moduleFileExtensions, 'node'].filter(
