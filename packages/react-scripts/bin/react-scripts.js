@@ -29,7 +29,6 @@ const scriptIndex = args.findIndex(
     x === 'delete-git-and-all-areas' ||
     x === 'dsui-link' ||
     x === 'dsui-unlink'
-  // x === 'preinstall'
 );
 const script = scriptIndex === -1 ? args[0] : args[scriptIndex];
 const scriptArgs = scriptIndex > 0 ? args.slice(0, scriptIndex) : [];
