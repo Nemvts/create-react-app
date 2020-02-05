@@ -40,7 +40,6 @@ module.exports = (resolve, rootDir, isEjecting) => {
       isEjecting
         ? 'react-app-polyfill/jsdom'
         : require.resolve('react-app-polyfill/jsdom'),
-      require.resolve('../../config/jest/jest.setup.js'),
     ],
 
     setupFilesAfterEnv: setupTestsFile ? [setupTestsFile] : [],
@@ -49,7 +48,6 @@ module.exports = (resolve, rootDir, isEjecting) => {
       '<rootDir>/src/**/*.{spec,test}.{js,jsx,ts,tsx}',
     ],
     testEnvironment: 'jest-environment-jsdom-fourteen',
-    testRegex: 'src/.*\\.(test|spec)\\.(js|jsx)$',
     testURL: 'http://localhost',
     transform: {
       '^.+\\.(js|jsx|ts|tsx)$': isEjecting
