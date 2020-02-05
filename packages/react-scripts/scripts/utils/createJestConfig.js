@@ -30,9 +30,20 @@ module.exports = (resolve, rootDir, isEjecting) => {
       '!src/**/mock/**',
       '!**/mocks/**',
       '!src/mock.js',
-      '!src/**/*.stories.js',
+      '!src/**/*.stories.{js,tsx}',
       '!src/**/*.d.ts',
     ],
+
+    coverageThreshold: {
+      global: {
+        statements: 95,
+        branches: 95,
+        functions: 95,
+        lines: 95,
+      },
+    },
+
+    coverageReporters: ['text', 'html'],
 
     coverageDirectory: './coverage',
 
@@ -43,12 +54,17 @@ module.exports = (resolve, rootDir, isEjecting) => {
     ],
 
     setupFilesAfterEnv: setupTestsFile ? [setupTestsFile] : [],
+
+    // convert Enzyme wrappers to format for snapshot testing
+    snapshotSerializers: ['enzyme-to-json/serializer'],
+
     testMatch: [
       '<rootDir>/src/**/__tests__/**/*.{js,jsx,ts,tsx}',
       '<rootDir>/src/**/*.{spec,test}.{js,jsx,ts,tsx}',
     ],
     testEnvironment: 'jest-environment-jsdom-fourteen',
     testURL: 'http://localhost',
+
     transform: {
       '^.+\\.(js|jsx|ts|tsx)$': isEjecting
         ? '<rootDir>/node_modules/babel-jest'
@@ -58,10 +74,9 @@ module.exports = (resolve, rootDir, isEjecting) => {
         'config/jest/fileTransform.js'
       ),
     },
-    transformIgnorePatterns: [
-      '[/\\\\]node_modules[/\\\\].+\\.(js|jsx|ts|tsx)$',
-      '^.+\\.module\\.(css|sass|scss)$',
-    ],
+    transformIgnorePatterns: ['node_modules/(?!(@dealersocket/ds-ui-react)/)'],
+
+    moduleDirectories: ['node_modules', 'src'],
     modulePaths: modules.additionalModulePaths || [],
     moduleNameMapper: {
       '^react-native$': 'react-native-web',
@@ -73,6 +88,7 @@ module.exports = (resolve, rootDir, isEjecting) => {
     moduleFileExtensions: [...paths.moduleFileExtensions, 'node'].filter(
       ext => !ext.includes('mjs')
     ),
+
     watchPlugins: [
       'jest-watch-typeahead/filename',
       'jest-watch-typeahead/testname',
