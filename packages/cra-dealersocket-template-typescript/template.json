@@ -35,5 +35,20 @@
       "reselect": "4.0.0",
       "typescript": "~3.7.2"
     }
+  },
+  "scripts": {
+    "codemod": "yarn codeshift && yarn prettier",
+    "codeshift": "cross-env BABEL_ENV=development jscodeshift --extensions js,jsx --parser flow -t node_modules/@dealersocket/ds-ui-react/codemod/v3.0 src --no-babel",
+    "lint": "eslint src",
+    "lint:fix": "eslint --fix src",
+    "lint-package": "ds-package-linter",
+    "lint-watch": "chokidar \"src/**/*.js\" -c \"eslint src\" --initial --polling",
+    "prettier": "prettier --loglevel warn --write \"{src,src-startup}/**/*.{js,json}\"",
+    "prod": "serve -l 3000 -s build",
+    "storybook": "start-storybook -p 6006",
+    "test-all": "node scripts/test.js --watchAll",
+    "test-coverage": "node scripts/test.js --coverage",
+    "test-coverage-watch": "node scripts/test.js --coverage --watch",
+    "validate": "yarn prettier && yarn lint-package && yarn lint:fix && yarn flow && yarn test --coverage"
   }
 }
