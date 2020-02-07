@@ -1,6 +1,6 @@
 {
   "name": "@nemvts/react-scripts",
-  "version": "3.3.4",
+  "version": "3.3.5",
   "description": "DealerSocket configuration and scripts for Create React App.",
   "repository": {
     "type": "git",
@@ -29,6 +29,8 @@
   "types": "./lib/react-app.d.ts",
   "dependencies": {
     "@babel/core": "7.7.5",
+    "@dealersocket/package-linter": "1.6.11",
+    "@dealersocket/eslint-config-ds-react-flow": "1.6.11",
     "@svgr/webpack": "4.3.3",
     "@typescript-eslint/eslint-plugin": "^2.10.0",
     "@typescript-eslint/parser": "^2.10.0",
