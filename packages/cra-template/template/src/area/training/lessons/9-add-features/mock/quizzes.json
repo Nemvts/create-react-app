@@ -1,0 +1,26 @@
+[
+  {
+    "id": "1",
+    "operand1": 0,
+    "operation": "+",
+    "operand2": 9
+  },
+  {
+    "id": "2",
+    "operand1": 81,
+    "operation": "-",
+    "operand2": 9
+  },
+  {
+    "id": "3",
+    "operand1": 9,
+    "operation": "*",
+    "operand2": 9
+  },
+  {
+    "id": "4",
+    "operand1": 81,
+    "operation": ":",
+    "operand2": 3
+  }
+]

@@ -1,0 +1,34 @@
+{
+  "calculations": [
+    {
+      "title": "Calculation 1",
+      "default": 654365,
+      "threeSixty": 543,
+      "twoDays": 564
+    },
+    {
+      "title": "Calculation 2",
+      "default": 543,
+      "threeSixty": 98,
+      "twoDays": 987
+    },
+    {
+      "title": "Calculation 3",
+      "default": 565645,
+      "threeSixty": 876,
+      "twoDays": 4353
+    },
+    {
+      "title": "Calculation 4",
+      "default": 9856,
+      "threeSixty": 654,
+      "twoDays": 76
+    },
+    {
+      "title": "Calculation 5",
+      "default": 234,
+      "threeSixty": 432,
+      "twoDays": 786
+    }
+  ]
+}

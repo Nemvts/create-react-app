@@ -1,0 +1,12 @@
+{
+  "students-page.title": "Estudantes",
+
+  "web.app.template.header.home": "Casa",
+  "web.app.template.header.page2": "Página 2",
+  "web.app.template.header.andrea": "Andrez",
+  "web.app.template.header.kenny": "Kenny",
+  "web.app.template.greeting": "Olá",
+  "web.app.template.containers.LocaleToggle.en": "Inglês",
+  "web.app.template.containers.LocaleToggle.es": "Espanhol",
+  "web.app.template.containers.LocaleToggle.pt": "Português"
+}

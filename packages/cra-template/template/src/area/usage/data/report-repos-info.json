@@ -1,0 +1,100 @@
+{
+  "date": "2020-01-30T17:29:53.548Z",
+  "repos": [
+    {
+      "code": "cAdmEntV",
+      "name": "web.crm.admin.enterpriseview",
+      "depVersion": "1.2.0"
+    },
+    {
+      "code": "crm",
+      "name": "web.crm",
+      "depVersion": "4.1.0"
+    },
+    {
+      "code": "dealersocket.crm.reactsearch",
+      "name": "dealersocket.crm.reactsearch",
+      "depVersion": "5.1.0"
+    },
+    {
+      "code": "dsk",
+      "name": "web.desking",
+      "depVersion": "5.1.1"
+    },
+    {
+      "code": "dskAd",
+      "name": "web.desking.admin",
+      "depVersion": "5.1.1"
+    },
+    {
+      "code": "dskTl",
+      "name": "web.desking.tools",
+      "depVersion": "4.0.0-alpha.4443"
+    },
+    {
+      "code": "entAd",
+      "name": "web.enterpriseadmin",
+      "depVersion": "4.1.0"
+    },
+    {
+      "code": "iAbsSrc",
+      "name": "web.inventory.absolutesourcing",
+      "depVersion": "3.2.2-hotfix.5406"
+    },
+    {
+      "code": "iAd",
+      "name": "web.inventory.admin",
+      "depVersion": "3.2.2-hotfix.5406"
+    },
+    {
+      "code": "iInt",
+      "name": "web.inventory.internal",
+      "depVersion": "3.2.2-hotfix.5406"
+    },
+    {
+      "code": "iMgr",
+      "name": "web.inventory.manager",
+      "depVersion": "3.2.2-hotfix.5406"
+    },
+    {
+      "code": "rr",
+      "name": "web.revenueradar",
+      "depVersion": "5.0.2"
+    },
+    {
+      "code": "rxCom",
+      "name": "dealersocket.redux.common",
+      "depVersion": "4.1.0"
+    },
+    {
+      "code": "rxCrm",
+      "name": "dealersocket.redux.crm",
+      "depVersion": "4.1.0"
+    },
+    {
+      "code": "rxInv",
+      "name": "dealersocket.redux.inventory",
+      "depVersion": "4.1.0"
+    },
+    {
+      "code": "slsD",
+      "name": "web.salesdashboard",
+      "depVersion": "5.0.0-rc.5130"
+    },
+    {
+      "code": "sss",
+      "name": "app.sso",
+      "depVersion": "5.1.0-alpha.5349"
+    },
+    {
+      "code": "tmpl",
+      "name": "web.app.reacttemplate",
+      "depVersion": "5.0.0-rc.5130"
+    },
+    {
+      "code": "web.admin",
+      "name": "web.admin",
+      "depVersion": "4.1.0-rc.4503"
+    }
+  ]
+}

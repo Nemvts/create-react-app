@@ -1,0 +1,143 @@
+[
+  {
+    "id": 1,
+    "first": "Andrea",
+    "last": "Wyss",
+    "ide": "WebStorm",
+    "language": "ES+",
+    "photo": "https://dealersocket.atlassian.net/wiki/aa-avatar/7138eae229df444c38747b80445d27bb"
+  },
+  {
+    "id": 2,
+    "first": "Bob",
+    "last": "Noble",
+    "ide": "*",
+    "language": "Swift",
+    "photo": "https://dealersocket.atlassian.net/wiki/aa-avatar/c21a7d2ab32adf842b6be33e296452f0",
+    "status": "busy"
+  },
+  {
+    "id": 3,
+    "first": "Carlos",
+    "last": "Macias",
+    "ide": "IntelliJ",
+    "language": "Perl + Java",
+    "status": ""
+  },
+  {
+    "id": 4,
+    "first": "Keerthana",
+    "last": "Nadakuditi",
+    "ide": "IntelliJ",
+    "language": "ES6",
+    "status": ""
+  },
+  {
+    "id": 5,
+    "first": "Lenzi",
+    "last": "Erickson",
+    "ide": "VS Code",
+    "language": "SASS + ES",
+    "photo": "https://avatar-cdn.atlassian.com/5f5b592753dcf002f67ab0d3f0d7b5f6",
+    "status": "JSS"
+  },
+  {
+    "id": 6,
+    "first": "Leo",
+    "last": "Booth",
+    "ide": "VS Code",
+    "language": "TS + C#",
+    "photo": "https://dealersocket.atlassian.net/wiki/aa-avatar/1e9f7fab2e4fb7b78330e67e0c312270",
+    "status": "Unit test"
+  },
+  {
+    "id": 7,
+    "first": "Manta",
+    "last": "?",
+    "ide": "QA Eclipse",
+    "language": "Some Java",
+    "status": "Unit test"
+  },
+  {
+    "id": 8,
+    "first": "Murali",
+    "last": "Maddula",
+    "ide": "VSC/STS",
+    "language": "Angular4 + TS",
+    "status": "Redux"
+  },
+  {
+    "id": 9,
+    "first": "Narasimha",
+    "last": "Srirangam",
+    "ide": "IntelliJ",
+    "language": "Java",
+    "status": "busy"
+  },
+  {
+    "id": 10,
+    "first": "Pradeep",
+    "last": "Goud",
+    "ide": "Webstorm/Eclipse",
+    "language": "Java",
+    "photo": "https://dealersocket.atlassian.net/wiki/aa-avatar/cb36870d4a87971074a2d19ab319cf9b",
+    "status": "busy"
+  },
+  {
+    "id": 11,
+    "first": "Raghu",
+    "last": "Moletti",
+    "ide": "IntelliJ/Eclipse/STS",
+    "language": "Java + Angular + React",
+    "status": "Security"
+  },
+  {
+    "id": 12,
+    "first": "Rajya",
+    "last": "Cherala",
+    "ide": "VSC/SL",
+    "language": "Angular2 + TS",
+    "status": "Saga"
+  },
+  {
+    "id": 13,
+    "first": "Ramya",
+    "last": "Kolli",
+    "ide": "Eclipse",
+    "language": "Angular2 + TS",
+    "status": "Saga"
+  },
+  {
+    "id": 14,
+    "first": "Saharsh",
+    "last": "Singh",
+    "ide": "*",
+    "language": "Java + JS(Angular/React)",
+    "status": "Team Lead"
+  },
+  {
+    "id": 15,
+    "first": "Sandhya",
+    "last": "Kodali",
+    "ide": "Eclipse",
+    "language": "Java",
+    "status": "connect react-redux auth"
+  },
+  {
+    "id": 16,
+    "first": "Shailaja",
+    "last": "Visinigiri",
+    "ide": "Eclipse/VS Code",
+    "language": "Java",
+    "status": "redux flow why not thunk (Native)"
+  },
+  {
+    "id": 17,
+    "first": "Shirish",
+    "last": "Veerabattini",
+    "ide": "Webstorm/Eclipse",
+    "language": "ES6 + Java",
+    "photo": "https://avatar-cdn.atlassian.com/d60001a05639b416076b4079580e7eeb",
+    "status": ""
+  }
+]

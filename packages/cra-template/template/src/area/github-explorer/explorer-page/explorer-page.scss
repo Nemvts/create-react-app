@@ -1,0 +1,16 @@
+.homeMainContent {
+  margin: 3em auto;
+  width: 100%;
+
+  &:first-child {
+    margin-top: 0;
+  }
+}
+.usernameForm{
+  margin-bottom: 1em;
+}
+.usernameInput {
+  outline: none;
+  border-bottom: 1px dotted #999;
+  margin-left: 1rem;
+}
