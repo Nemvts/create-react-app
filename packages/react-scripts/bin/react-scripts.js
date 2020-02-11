@@ -24,19 +24,19 @@ const scriptIndex = args.findIndex(
     x === 'eject' ||
     x === 'start' ||
     x === 'test' ||
-    x === 'build:clean' ||
+    x === 'build-clean' ||
     x === 'delete-node-modules' ||
     x === 'delete-git-and-all-areas' ||
     x === 'dsui-link' ||
     x === 'dsui-unlink'
 );
 const script = scriptIndex === -1 ? args[0] : args[scriptIndex];
-const nodeArgs = scriptIndex > 0 ? args.slice(0, scriptIndex) : [];
+const scriptArgs = scriptIndex > 0 ? args.slice(0, scriptIndex) : [];
 
 if (['build', 'eject', 'start', 'test'].includes(script)) {
   const result = spawn.sync(
     'node',
-    nodeArgs
+    scriptArgs
       .concat(require.resolve('../scripts/' + script))
       .concat(args.slice(scriptIndex + 1)),
     { stdio: 'inherit' }
@@ -60,7 +60,7 @@ if (['build', 'eject', 'start', 'test'].includes(script)) {
   process.exit(result.status);
 } else if (
   [
-    'build:clean',
+    'build-clean',
     'delete-node-modules',
     'delete-git-and-all-areas',
     'dsui-link',
