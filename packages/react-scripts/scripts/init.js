@@ -129,6 +129,11 @@ module.exports = function(
       build: 'react-scripts build',
       test: 'react-scripts test',
       eject: 'react-scripts eject',
+      'build:clean': 'react-scripts build-clean',
+      'delete-node-modules': 'react-scripts delete-node-modules',
+      'delete-git-and-all-areas': 'react-scripts delete-git-and-all-areas',
+      'dsui-link': 'react-scripts dsui-link',
+      'dsui-unlink': 'react-scripts dsui-unlink',
     },
     templateScripts
   );
