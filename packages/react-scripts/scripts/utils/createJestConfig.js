@@ -25,7 +25,27 @@ module.exports = (resolve, rootDir, isEjecting) => {
   const config = {
     roots: ['<rootDir>/src'],
 
-    collectCoverageFrom: ['src/**/*.{js,jsx,ts,tsx}', '!src/**/*.d.ts'],
+    collectCoverageFrom: [
+      'src/area/dallas-class/**',
+      '!src/**/mock/**',
+      '!**/mocks/**',
+      '!src/mock.js',
+      '!src/**/*.stories.{js,tsx}',
+      '!src/**/*.d.ts',
+    ],
+
+    coverageThreshold: {
+      global: {
+        statements: 95,
+        branches: 95,
+        functions: 95,
+        lines: 95,
+      },
+    },
+
+    coverageReporters: ['text', 'html'],
+
+    coverageDirectory: './coverage',
 
     setupFiles: [
       isEjecting
@@ -34,11 +54,16 @@ module.exports = (resolve, rootDir, isEjecting) => {
     ],
 
     setupFilesAfterEnv: setupTestsFile ? [setupTestsFile] : [],
+
+    // convert Enzyme wrappers to format for snapshot testing
+    snapshotSerializers: ['enzyme-to-json/serializer'],
+
     testMatch: [
       '<rootDir>/src/**/__tests__/**/*.{js,jsx,ts,tsx}',
       '<rootDir>/src/**/*.{spec,test}.{js,jsx,ts,tsx}',
     ],
     testEnvironment: 'jest-environment-jsdom-fourteen',
+
     transform: {
       '^.+\\.(js|jsx|ts|tsx)$': isEjecting
         ? '<rootDir>/node_modules/babel-jest'
@@ -48,14 +73,15 @@ module.exports = (resolve, rootDir, isEjecting) => {
         'config/jest/fileTransform.js'
       ),
     },
-    transformIgnorePatterns: [
-      '[/\\\\]node_modules[/\\\\].+\\.(js|jsx|ts|tsx)$',
-      '^.+\\.module\\.(css|sass|scss)$',
-    ],
+    transformIgnorePatterns: ['node_modules/(?!(@dealersocket/ds-ui-react)/)'],
+
+    moduleDirectories: ['node_modules', 'src'],
     modulePaths: modules.additionalModulePaths || [],
     moduleNameMapper: {
       '^react-native$': 'react-native-web',
       '^.+\\.module\\.(css|sass|scss)$': 'identity-obj-proxy',
+      '\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$':
+        '<rootDir>/__mocks__/file-mock.js',
       ...(modules.jestAliases || {}),
     },
     moduleFileExtensions: [...paths.moduleFileExtensions, 'node'].filter(
