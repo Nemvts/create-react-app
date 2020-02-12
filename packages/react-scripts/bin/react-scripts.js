@@ -26,7 +26,6 @@ const scriptIndex = args.findIndex(
     x === 'test' ||
     x === 'build-clean' ||
     x === 'delete-node-modules' ||
-    x === 'delete-git-and-all-areas' ||
     x === 'dsui-link' ||
     x === 'dsui-unlink'
 );
