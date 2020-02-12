@@ -1,0 +1,7 @@
+{
+  "globalApiUrl": "#{Classic.BaseUrl}/DealerSocket.Web.Api",
+  "ssoCheckSessionInterval": "#{Sso.Session.PollingInterval}",
+  "ssoClientId": "crm_blackbird",
+  "ssoUrl": "#{DealerSocket.Sso.Url}",
+  "ssoScopes": "openid profile api blackbird"
+}

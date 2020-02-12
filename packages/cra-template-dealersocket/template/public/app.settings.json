@@ -1,0 +1,8 @@
+﻿{
+  "globalApiUrl": "https://api.local.dealersocket.com",
+  "ssoCheckSessionInterval": 10000,
+  "ssoClientId": "crm_blackbird",
+  "ssoUrl": "https://sso.local.dealersocket.com",
+  "ssoScopes": "openid profile api blackbird",
+  "mockAccessToken": ""
+}
