@@ -1,7 +1,90 @@
 {
   "dependencies": {
-    "@testing-library/react": "^9.3.2",
-    "@testing-library/jest-dom": "^4.2.4",
-    "@testing-library/user-event": "^7.1.2"
+    "@dealersocket/ds-ui-react": "5.0.0-rc.5130",
+    "@dealersocket/react-common": "2.0.2",
+    "@hocs/with-lifecycle": "0.5.0",
+    "@material-ui/core": "4.3.3",
+    "@material-ui/icons": "4.2.1",
+    "@storybook/addons": "4.1.12",
+    "@storybook/addon-actions": "4.1.12",
+    "@storybook/react": "4.1.12",
+    "@testing-library/react": "9.3.2",
+    "@testing-library/jest-dom": "4.2.4",
+    "@testing-library/user-event": "7.1.2",
+    "axios": "0.18.0",
+    "axios-mock-adapter": "1.16.0",
+    "connected-react-router": "6.3.1",
+    "enzyme": "3.9.0",
+    "enzyme-adapter-react-16": "1.9.1",
+    "enzyme-to-json": "3.3.5",
+    "history": "4.7.2",
+    "normalizr": "3.3.0",
+    "prettier": "1.16.4",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0",
+    "react-component-queries": "2.3.0",
+    "react-dnd": "2.6.0",
+    "react-dnd-html5-backend": "2.6.0",
+    "react-intl": "3.2.0",
+    "react-redux": "6.0.1",
+    "react-redux-toastr": "7.4.7",
+    "react-router": "5.0.1",
+    "react-router-dom": "5.0.1",
+    "react-sizeme": "2.5.2",
+    "react-splitter-layout": "4.0.0",
+    "redux": "4.0.1",
+    "redux-form": "8.1.0",
+    "redux-mock-store": "1.5.3",
+    "redux-saga": "1.0.1",
+    "reselect": "4.0.0"
+  },
+  "scripts": {
+    "codemod": "yarn codeshift && yarn prettier",
+    "codeshift": "cross-env BABEL_ENV=development jscodeshift --extensions js,jsx --parser flow -t node_modules/@dealersocket/ds-ui-react/codemod/v3.0 src --no-babel",
+    "lint": "eslint src",
+    "lint:fix": "eslint --fix src",
+    "lint-package": "ds-package-linter",
+    "lint-watch": "chokidar \"src/**/*.js\" -c \"eslint src\" --initial --polling",
+    "prettier": "prettier --loglevel warn --write \"{src,src-startup}/**/*.{js,json}\"",
+    "prod": "serve -l 3000 -s build",
+    "storybook": "start-storybook -p 6006",
+    "test-all": "node scripts/test.js --watchAll",
+    "test-coverage": "node scripts/test.js --coverage",
+    "test-coverage-watch": "node scripts/test.js --coverage --watch",
+    "validate": "yarn prettier && yarn lint-package && yarn lint:fix && yarn flow && yarn test --coverage"
+  },
+  "eslintConfig": {
+    "extends": "@dealersocket/ds-react-flow",
+    "rules": {
+      "@dealersocket/dealersocket/file-names": [
+        "error",
+        {
+          "validFileTypes": ["actions", "constants", "schema"]
+        }
+      ]
+    },
+    "ignorePatterns": [".plop", "config/", "scripts/", "postcss.config.js"]
+  },
+  "prettier": {
+    "arrowParens": "always",
+    "bracketSpacing": true,
+    "endOfLine": "auto",
+    "jsxBracketSameLine": false,
+    "overrides": [
+      {
+        "files": "*.json",
+        "options": {
+          "parser": "json"
+        }
+      }
+    ],
+    "parser": "babel-flow",
+    "printWidth": 80,
+    "proseWrap": "preserve",
+    "semi": true,
+    "singleQuote": true,
+    "tabWidth": 2,
+    "trailingComma": "es5",
+    "useTabs": false
   }
 }

@@ -1,0 +1,17 @@
+{
+  "students-page.title": "Students",
+  "students-page.label.clear": "Clear",
+  "students-page.label.load": "Load",
+  "students-page.label.Loading": "Loading",
+  "students-page.label.remove_selected": "Remove Selected",
+  "student-table-row.label.remove": "Remove",
+
+  "web.app.template.header.home": "Home",
+  "web.app.template.header.page2": "Page 2",
+  "web.app.template.header.andrea": "Andrea",
+  "web.app.template.header.kenny": "Kenny",
+  "web.app.template.greeting": "Hello",
+  "web.app.template.containers.LocaleToggle.en": "English",
+  "web.app.template.containers.LocaleToggle.es": "Spanish",
+  "web.app.template.containers.LocaleToggle.pt": "Portuguese"
+}

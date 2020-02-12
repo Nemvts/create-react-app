@@ -1,0 +1,86 @@
+image:
+  name: dealersocket-docker.jfrog.io/dockerfiles.bitbucketpipelines/package:latest
+  username: $ARTIFACTORY_USERNAME
+  password: $ARTIFACTORY_APIKEY
+
+definitions:
+  caches:
+    yarncache: /usr/local/share/.cache/yarn/v1
+
+pipelines:
+  branches:
+    '{master,hotfix/**,usage}':
+      - step:
+          name: Setup
+          script:
+          - ds-setup
+          artifacts:
+          - ds-package-utils/**
+
+      - step:
+          name: Build
+          image: node:11.2
+          #Note: do not use caches on stable branches
+          script:
+          - source ds-package-utils/ds-initialize.sh
+
+          - yarn install
+          - yarn outdated || true
+          - yarn lint-package
+
+          - yarn lint
+          - yarn flow
+          - yarn test-coverage
+          - yarn build
+          artifacts:
+          - build/**
+
+      - step:
+          name: Package
+          script:
+          - package_name="Web.App.ReactTemplate"
+          - package_version="$(ds-get-package-version)"
+
+          - ds-create-nupkg-from-folder ./build/ $package_name $package_version
+          - ds-artifactory-store-nupkg $package_name $package_version
+          - ds-octopus-create-release Projects-1086 $package_name $package_version
+
+    '**':
+      - step:
+          name: Setup
+          script:
+          - ds-setup
+          artifacts:
+          - ds-package-utils/**
+
+      - step:
+          name: Build
+          image: node:11.2
+          caches:
+          - node
+          - yarncache
+          script:
+          - source ds-package-utils/ds-initialize.sh
+
+          - yarn install
+          - yarn outdated || true
+          - yarn lint-package
+
+          - yarn lint
+          - yarn flow
+          - yarn test-coverage
+          - yarn build
+          artifacts:
+          - build/**
+
+      - step:
+          name: Package
+          script:
+          - package_name="Web.App.ReactTemplate"
+          - package_version="$(ds-get-package-version)"
+
+          - ds-create-nupkg-from-folder ./build/ $package_name $package_version
+          - ds-artifactory-store-nupkg $package_name $package_version
+          - ds-octopus-create-release Projects-1086 $package_name $package_version
+
+

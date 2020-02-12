@@ -1,0 +1,22 @@
+[ignore]
+<PROJECT_ROOT>/.plop/.*
+
+[include]
+; Needed when yarn linked to build folder of ds-ui-react
+../web.lib.ds-ui-react/build
+../web.lib.ds-ui-react/node_modules
+
+[libs]
+config/flowtypes/
+
+[options]
+module.file_ext=.js
+module.file_ext=.json
+module.file_ext=.css
+module.file_ext=.scss
+module.name_mapper.extension='scss' -> '<PROJECT_ROOT>/config/flowstubs/SCSSFlowStub.js.flow'
+module.system.node.resolve_dirname=node_modules
+module.system.node.resolve_dirname=src
+
+; Needed when yarn linked to build folder of ds-ui-react
+module.system.node.resolve_dirname=/git/web.lib.ds-ui-react/node_modules
