@@ -1,6 +1,6 @@
 {
   "name": "@nemvts/ds-scripts",
-  "version": "3.3.3",
+  "version": "3.3.4",
   "description": "Configuration and scripts for Create React App.",
   "repository": {
     "type": "git",
@@ -37,6 +37,7 @@
     "babel-eslint": "10.0.3",
     "babel-jest": "^24.9.0",
     "babel-loader": "8.0.6",
+    "babel-plugin-flow-react-proptypes": "25.0.0",
     "babel-plugin-named-asset-import": "^0.3.5",
     "babel-preset-react-app": "^9.1.0",
     "camelcase": "^5.3.1",
