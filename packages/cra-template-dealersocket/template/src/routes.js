@@ -4,7 +4,7 @@ import { Switch, Route } from 'react-router-dom';
 import { lazyRender } from '@dealersocket/react-common';
 
 import { HomePageContainer } from 'area/home/home-page/home-page.container';
-import { AuthenticatingPage } from 'area/authentication/authenticating-page';
+import AuthenticatingPage from 'area/authentication/authenticating-page';
 import { NotFoundPage } from 'area/not-found/not-found-page';
 
 export const Routes = () => (
